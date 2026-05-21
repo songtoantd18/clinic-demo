@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#dfe8ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary-container": "#d5ccff",
+                    "outline-variant": "#c3c6d6",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#001848",
+                    "secondary-fixed-dim": "#65dca4",
+                    "background": "#f9f9ff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#82f9be",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b2c5ff",
+                    "on-background": "#091c35",
+                    "outline": "#737685",
+                    "on-tertiary-fixed": "#1a0063",
+                    "surface-container-low": "#f0f3ff",
+                    "on-surface": "#091c35",
+                    "on-secondary-fixed-variant": "#005235",
+                    "secondary-fixed": "#82f9be",
+                    "primary-container": "#0052cc",
+                    "on-tertiary-fixed-variant": "#4633a0",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary-container": "#5b49b5",
+                    "on-secondary-container": "#00734c",
+                    "surface-tint": "#0c56d0",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#432f9c",
+                    "surface": "#f9f9ff",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-surface": "#20314b",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#e5deff",
+                    "primary": "#003d9b",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#d6e3ff",
+                    "secondary": "#006c47",
+                    "on-surface-variant": "#434654",
+                    "tertiary-fixed-dim": "#c9bfff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "surface-container-highest": "#d6e3ff",
+                    "on-primary-container": "#c4d2ff",
+                    "surface-container": "#e7eeff",
+                    "surface-dim": "#cadbfc",
+                    "inverse-on-surface": "#ecf0ff",
+                    "on-secondary-fixed": "#002113",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "h3": ["Inter"],
+                    "h1": ["Inter"],
+                    "label-md": ["Inter"],
+                    "h2": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Bar (Suppressed on Auth Screens, but rendering placeholder logic if needed) -->
+<!-- As per the rule: suppress the navigation shell if the page intent is Transactional (Login/Signup) -->
+<main class="min-h-screen flex items-center justify-center p-lg">
+<div class="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
+<!-- Left Side: Aesthetic/Branding -->
+<div class="hidden md:flex flex-col justify-between p-xxl bg-primary relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-h1 text-on-primary mb-md">PatientCare</h2>
+<p class="font-body-lg text-on-primary-container opacity-90 max-w-sm">
+                        Giải pháp quản lý sức khỏe toàn diện cho gia đình bạn. Tin cậy, bảo mật và tận tâm.
+                    </p>
+</div>
+<div class="relative z-10 mt-xxl">
+<div class="p-lg bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+<span class="material-symbols-outlined text-on-primary mb-sm">medical_services</span>
+<p class="font-label-md text-on-primary">Tiêu chuẩn Y khoa Quốc tế</p>
+<p class="font-caption text-on-primary-container opacity-80">Dữ liệu của bạn được mã hóa và bảo vệ theo tiêu chuẩn HIPAA toàn cầu.</p>
+</div>
+</div>
+<!-- Abstract Decorative Circles -->
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-primary-container rounded-full opacity-20"></div>
+<div class="absolute top-1/2 -right-20 w-40 h-40 bg-secondary-container rounded-full opacity-10"></div>
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-30" data-alt="A professional healthcare environment with soft blue clinical tones. A doctor's workspace featuring high-tech medical monitors showing clean data visualizations and health metrics. The lighting is bright and airy, creating a sense of professional reliability and sterile modernism. The overall aesthetic is minimalist, focusing on high-quality medical technology and patient care peace of mind." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS2QC4i_FLVJqN5n9fmtVGPkNacaguF65ZHj2fKecayjYAkYKl5iCn2yvw5VElbLeji2pSqF_eGDOlileDldnowB4CF39yDZtuhmE_ZVO1cWW_fG4u-ACaptI4qwiBaG4WFJRLOH6MD139ck6Ok71-TwT8ZB78bVmoAFFlcZ-ABNTD0UvXnJOtGgbLDNu32Iu5sjIPzHCR-V3YMERUOIUFsN109PPGcfVtK-PDFRbVqYNXeyX-yH2wrxKjAxcgeIghtvqWcZZE"/>
+</div>
+</div>
+<!-- Right Side: Auth/Profile Form -->
+<div class="p-lg md:p-xxl flex flex-col justify-center">
+<!-- Initial Login/Register View -->
+<div class="" id="auth-view">
+<div class="mb-xl text-center md:text-left">
+<h1 class="font-h2 text-on-surface mb-sm">Chào mừng bạn</h1>
+<p class="font-body-md text-on-surface-variant">Đăng nhập để bắt đầu hành trình chăm sóc sức khỏe của bạn.</p>
+</div>
+<div class="space-y-md">
+<!-- Google Login Button -->
+<button class="w-full flex items-center justify-center gap-md py-md px-lg bg-white border border-outline-variant rounded-full font-label-md text-on-surface hover:bg-surface-container transition-all active:scale-[0.98]">
+<img alt="Google Logo" class="w-6 h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5kOsHwWjtnyJgyBIDOwE82s-IYYA2TIlXiL3hnJxrnDUFPf0eeP6g6X7xcIWiqy7rONBd3g8_Wd15arpSNAulMYaETQwAbhWSIX5VwkwOtFsLDzZwbsn9_55vcgV-z6N5RuwlP9GXdbMM1Pe_PiOfu-uNhBt2j2adX5-8yVErMRCrl0SR8uAe0dmpgsuT1lIh2y0PrLoWSCjdE36Brb-gnCLtQlhl9vC56T4sesYZT9OSw5aO9PLwlh_c_zdgwsna-vOjOXhD"/>
+                            Tiếp tục với Google
+                        </button>
+<div class="flex items-center gap-md py-sm">
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+<span class="font-caption text-outline">hoặc sử dụng Email</span>
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+</div>
+<form class="space-y-md">
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs">Địa chỉ Email</label>
+<input class="w-full px-md py-sm border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="ten@vidu.com" type="email"/>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs">Mật khẩu</label>
+<input class="w-full px-md py-sm border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="••••••••" type="password"/>
+</div>
+<button class="w-full py-md bg-primary text-on-primary rounded-full font-label-md hover:bg-primary/90 shadow-sm transition-all" onclick="document.getElementById('auth-view').classList.add('hidden'); document.getElementById('update-view').classList.remove('hidden');" type="button">
+                                Đăng nhập
+                            </button>
+</form>
+</div>
+<div class="mt-xl text-center">
+<p class="font-caption text-on-surface-variant">Chưa có tài khoản? <a class="text-primary font-label-md" href="#">Đăng ký ngay</a></p>
+</div>
+</div>
+<!-- Update Information View (Shown after first login) -->
+<div class="hidden" id="update-view">
+<div class="mb-xl">
+<div class="inline-flex items-center gap-sm text-primary mb-sm">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label-sm uppercase tracking-wider">Bước cuối cùng</span>
+</div>
+<h1 class="font-h2 text-on-surface mb-sm">Hoàn thiện hồ sơ</h1>
+<p class="font-body-md text-on-surface-variant">Vui lòng cung cấp thông tin chính xác để chúng tôi hỗ trợ bạn tốt nhất tại phòng khám.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="md:col-span-2">
+<label class="block font-label-sm text-on-surface-variant mb-xs">Họ và tên thật (Theo CCCD)</label>
+<input class="w-full px-md py-sm border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Nguyễn Văn A" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs">Số điện thoại</label>
+<input class="w-full px-md py-sm border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="0901 234 567" type="tel"/>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs">Số CMND/CCCD</label>
+<input class="w-full px-md py-sm border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="012345678901" type="text"/>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-sm text-on-surface-variant mb-xs">Email liên lạc</label>
+<input class="w-full px-md py-sm border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="example@gmail.com" type="email"/>
+<p class="mt-xs font-caption text-outline">Chúng tôi sẽ gửi kết quả khám qua email này.</p>
+</div>
+<div class="md:col-span-2 mt-sm">
+<label class="flex items-start gap-sm cursor-pointer group">
+<input class="mt-1 w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary" type="checkbox"/>
+<span class="font-caption text-on-surface-variant group-hover:text-on-surface transition-colors">Tôi xác nhận các thông tin trên là chính xác và hoàn toàn chịu trách nhiệm về tính trung thực của dữ liệu y tế này.</span>
+</label>
+</div>
+<div class="md:col-span-2 mt-md flex gap-md">
+<button class="flex-1 py-md border border-outline-variant text-on-surface rounded-full font-label-md hover:bg-surface-container transition-all" onclick="document.getElementById('update-view').classList.add('hidden'); document.getElementById('auth-view').classList.remove('hidden');" type="button">
+                                Quay lại
+                            </button>
+<button class="flex-[2] py-md bg-primary text-on-primary rounded-full font-label-md hover:bg-primary/90 shadow-sm transition-all" type="submit">
+                                Cập nhật hồ sơ
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer for Auth Pages -->
+<footer class="w-full border-t border-outline-variant/30 py-lg px-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-caption text-on-surface-variant">© 2024 PatientCare Management Systems. Clinical Precision.</p>
+<div class="flex gap-lg">
+<a class="font-caption text-outline hover:text-primary transition-colors" href="#">Chính sách bảo mật</a>
+<a class="font-caption text-outline hover:text-primary transition-colors" href="#">Điều khoản dịch vụ</a>
+<a class="font-caption text-outline hover:text-primary transition-colors" href="#">Hỗ trợ</a>
+</div>
+</div>
+</footer>
+</body></html>

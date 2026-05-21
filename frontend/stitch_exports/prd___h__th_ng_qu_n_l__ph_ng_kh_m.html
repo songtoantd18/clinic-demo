@@ -1,0 +1,42 @@
+# Yêu cầu Hệ thống Quản lý Phòng khám (Clinic Management System)
+
+## Tổng quan
+Hệ thống giúp phòng khám tư nhân quản lý số lượng bệnh nhân, lịch khám, đơn thuốc và giúp bệnh nhân đặt lịch hẹn trực
+tuyến để giảm thời gian chờ đợi.
+
+## 1. Phân hệ Phòng khám (Clinic - PK)
+- **Màn hình Login:** Đăng nhập bằng tài khoản được cấp sẵn.
+- **Dashboard:**
+- Tổng quan lịch sử đặt khám.
+- Danh sách khám trong 1 giờ tới.
+- Điều hướng nhanh đến chỉnh sửa thông tin và thời gian hoạt động.
+- **History Order ///(Lịch sử đặt khám):**
+- Hiển thị bảng: STT, Giờ khám, Tên, SĐT, Email, Tình trạng bệnh.
+- Phân biệt trạng thái bằng màu sắc: Xám (quá khứ), Xanh lá (tương lai), Lam (đang khám).
+- Bộ lọc đa năng: Thời gian, SĐT, Email, Tên, Sắp xếp.
+- **Detail History (Chi tiết lịch khám):**
+- Chi tiết: Thời gian, thông tin bệnh nhân, đơn thuốc, kết quả xét nghiệm.
+- Chỉnh sửa: Thời gian (nếu tương lai), đơn thuốc, kết quả, tình trạng bệnh.
+- Chức năng hủy lịch khám (cho lịch tương lai).
+- **Clinic Info (Thông tin phòng khám):**
+- Quản lý: Tên, ảnh, mô tả, địa chỉ, SĐT, Email, giờ mở cửa, mật khẩu, cài đặt thông báo.
+
+## 2. Phân hệ Bệnh nhân (Patient - Pa)
+- **Home Page:**
+- Banner giới thiệu & Video hướng dẫn.
+- Danh sách phòng khám gợi ý (dạng e-commerce).
+- Bộ lọc: Chuyên khoa (tai mũi họng, phổi...), khu vực (Hải Châu, Thanh Khê...).
+- **Detail Clinic (Chi tiết phòng khám):**
+- Ảnh, mô tả, thông tin bác sĩ.
+- Lịch khám trống trong 7 ngày tới.
+- Nút đặt lịch (yêu cầu đăng nhập).
+- **Login/Register:** Đăng nhập/Đăng ký qua Google. Cập nhật thông tin cá nhân (SĐT, CMND) sau khi đăng ký.
+- **Profile:** Quản lý thông tin cá nhân.
+- **History (Lịch sử khám):** Bảng lịch sử: STT, Thời gian, Tên PK, Địa chỉ, Chẩn đoán, Xem chi tiết đơn thuốc.
+- **Đặt lịch khám:** Chọn PK -> Chọn giờ -> Điền thông tin -> Submit.
+
+## 3. Tính năng tương lai
+- Đánh giá phòng khám.
+- Gợi ý theo địa chỉ.
+- Chat trực tiếp.
+- Thông báo qua tin nhắn điện thoại.

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#dfe8ff",
+                        "primary-fixed": "#dae2ff",
+                        "on-tertiary-container": "#d5ccff",
+                        "outline-variant": "#c3c6d6",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001848",
+                        "secondary-fixed-dim": "#65dca4",
+                        "background": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#82f9be",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-background": "#091c35",
+                        "outline": "#737685",
+                        "on-tertiary-fixed": "#1a0063",
+                        "surface-container-low": "#f0f3ff",
+                        "on-surface": "#091c35",
+                        "on-secondary-fixed-variant": "#005235",
+                        "secondary-fixed": "#82f9be",
+                        "primary-container": "#0052cc",
+                        "on-tertiary-fixed-variant": "#4633a0",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "tertiary-container": "#5b49b5",
+                        "on-secondary-container": "#00734c",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#432f9c",
+                        "surface": "#f9f9ff",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#20314b",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e5deff",
+                        "primary": "#003d9b",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d6e3ff",
+                        "secondary": "#006c47",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed-dim": "#c9bfff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "surface-container-highest": "#d6e3ff",
+                        "on-primary-container": "#c4d2ff",
+                        "surface-container": "#e7eeff",
+                        "surface-dim": "#cadbfc",
+                        "inverse-on-surface": "#ecf0ff",
+                        "on-secondary-fixed": "#002113",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "h3": ["Inter"],
+                        "h1": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h2": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<main class="flex-grow flex items-center justify-center p-lg">
+<div class="max-w-[1000px] w-full bg-surface-container-lowest shadow-lg rounded-xl overflow-hidden flex flex-col md:flex-row">
+<!-- Branding Section (Asymmetric Layout) -->
+<div class="md:w-1/2 relative min-h-[300px] md:min-h-[600px] flex items-center justify-center bg-primary">
+<img alt="Professional Healthcare Environment" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="A bright and sterile modern medical laboratory with high-tech equipment and a clean aesthetic. The scene is bathed in soft, clinical blue and white lighting, creating a sense of precision and professional trust. In the background, medical professionals in white coats are working in a focused manner. The overall mood is serene, technologically advanced, and highly organized, reflecting a premium healthcare brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzO3uy-N7S1oPfrociSuqPXTuJ4gn6kK7fuLRU9kI3_0i0ZRCkEKUn1Tx6RhslHgSUEakOx24hr37Tn_3HOKnRa0M6S08egr5KbKjiOx6Yx47AtjsaJyNf5_zRxco4m1sF12SKCoUaV_3nJvZP9_MkR0olFHAwYQJ69H29ekiikfkC90iGZ-0Wu9JbNCVx4wDQf0aTtxnPI8qYFiOXTbQ1hGdry_jhZjD55g1kDXfIS_3mosBzuMJZVLZX5LKTEjiWtXJwnON"/>
+<div class="relative z-10 p-xxl text-center">
+<div class="mb-lg inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-md">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="local_hospital">local_hospital</span>
+</div>
+<h1 class="font-h1 text-h1 text-on-primary mb-sm">ClinicPulse</h1>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-[320px] mx-auto opacity-90">
+                        Giải pháp quản lý y tế chính xác, tin cậy và hiện đại dành cho chuyên gia.
+                    </p>
+</div>
+</div>
+<!-- Login Form Section -->
+<div class="md:w-1/2 p-xl lg:p-xxl flex flex-col justify-center">
+<div class="max-w-[400px] mx-auto w-full">
+<header class="mb-xl">
+<h2 class="font-h2 text-h2 text-on-surface mb-xs">Đăng nhập</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Chào mừng bạn quay lại. Vui lòng nhập thông tin để truy cập hệ thống.</p>
+</header>
+<form action="#" class="space-y-lg" method="POST">
+<!-- Email Input -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block" for="email">Email chuyên viên</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="mail">mail</span>
+</div>
+<input class="block w-full pl-xl pr-md py-md border border-outline-variant rounded-lg bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-on-surface placeholder-outline" id="email" name="email" placeholder="admin@clinicpulse.vn" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant block" for="password">Mật khẩu</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">Quên mật khẩu?</a>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="lock">lock</span>
+</div>
+<input class="block w-full pl-xl pr-md py-md border border-outline-variant rounded-lg bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-on-surface placeholder-outline" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Login Button -->
+<button class="w-full py-md px-lg bg-primary text-on-primary font-label-md rounded-lg shadow-sm hover:bg-primary-container active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-sm" type="submit">
+                            Truy cập Hệ thống
+                            <span class="material-symbols-outlined text-[18px]" data-icon="login">login</span>
+</button>
+</form>
+<!-- Security Note -->
+<div class="mt-xxl pt-lg border-t border-outline-variant text-center">
+<div class="flex items-center justify-center gap-xs text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified_user">verified_user</span>
+<span class="font-caption text-caption">Kết nối được mã hóa AES-256 tiêu chuẩn y tế</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row justify-between items-center px-8 py-lg gap-4">
+<div class="font-['Inter'] text-xs text-slate-500">
+            © 2024 ClinicPulse Management Systems. Clinical Precision.
+        </div>
+<div class="flex gap-lg">
+<a class="font-['Inter'] text-xs text-slate-400 hover:text-slate-600 transition-opacity duration-150" href="#">Chính sách bảo mật</a>
+<a class="font-['Inter'] text-xs text-slate-400 hover:text-slate-600 transition-opacity duration-150" href="#">Điều khoản sử dụng</a>
+<a class="font-['Inter'] text-xs text-slate-400 hover:text-slate-600 transition-opacity duration-150" href="#">Hỗ trợ</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#dfe8ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary-container": "#d5ccff",
+                    "outline-variant": "#c3c6d6",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#001848",
+                    "secondary-fixed-dim": "#65dca4",
+                    "background": "#f9f9ff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#82f9be",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b2c5ff",
+                    "on-background": "#091c35",
+                    "outline": "#737685",
+                    "on-tertiary-fixed": "#1a0063",
+                    "surface-container-low": "#f0f3ff",
+                    "on-surface": "#091c35",
+                    "on-secondary-fixed-variant": "#005235",
+                    "secondary-fixed": "#82f9be",
+                    "primary-container": "#0052cc",
+                    "on-tertiary-fixed-variant": "#4633a0",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary-container": "#5b49b5",
+                    "on-secondary-container": "#00734c",
+                    "surface-tint": "#0c56d0",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#432f9c",
+                    "surface": "#f9f9ff",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-surface": "#20314b",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#e5deff",
+                    "primary": "#003d9b",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#d6e3ff",
+                    "secondary": "#006c47",
+                    "on-surface-variant": "#434654",
+                    "tertiary-fixed-dim": "#c9bfff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "surface-container-highest": "#d6e3ff",
+                    "on-primary-container": "#c4d2ff",
+                    "surface-container": "#e7eeff",
+                    "surface-dim": "#cadbfc",
+                    "inverse-on-surface": "#ecf0ff",
+                    "on-secondary-fixed": "#002113",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "h3": ["Inter"],
+                    "h1": ["Inter"],
+                    "label-md": ["Inter"],
+                    "h2": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-md shadow-sm">
+<div class="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-blue-700 tracking-tight">PatientCare</span>
+<nav class="hidden md:flex items-center gap-6 font-['Inter'] text-sm tracking-wide">
+<a class="text-blue-700 font-semibold border-b-2 border-blue-700" href="#">Find Clinics</a>
+<a class="text-slate-500 hover:text-blue-600 transition-all" href="#">My Appointments</a>
+<a class="text-slate-500 hover:text-blue-600 transition-all" href="#">Medical Records</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+<span class="font-label-md text-on-surface">Profile</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a medical administrator in a bright, modern clinic setting. The lighting is soft and natural, emphasizing a trustworthy and clean clinical environment. The person is wearing professional healthcare attire, and the overall color palette is dominated by soft blues and crisp whites, reflecting a high-end medical design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSXNqgcN2WsTbTcnoeTO2aO8pE7bH6nSkU3TwEUL3XfxdbKstH75J-SEnZKnvU5bh7hSldpje0w8Ps-c3i1zbxwRqEOWxuYDO3N0dbbI3vS_LUE9ibCg-qnjYvhURy7SI5PjTzi6wD1ALG2FLGILCEZcxwtDuMjC4h74ap0Ofy8AXEZnV5dgSfo-DH98VZNAKLUwNq4kMds4taAJawpAYyn2jL7KmLrebDFvhQYaLIaZXL1n90-566EslVdXnJabdMh79yIBV7"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Hero Section: Bento Style Image Gallery -->
+<section class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[400px] md:h-[500px] mb-8">
+<div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<img alt="Clinic Interior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="A spacious, ultra-modern dental clinic lobby with minimalist white furniture and large floor-to-ceiling windows. The room is flooded with bright, natural daylight, creating a serene and sterile yet welcoming atmosphere. Accents of medical blue and light gray complement the clean, high-end corporate healthcare aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMbb2fYjSobnsXa9TOEBC6j6PqLanhW1dEgHlQr2Hti7G5C45fgX3FePL87gBEmO4K3ZT0Ikyd0_pCPFOzDsAbS2MWwWZVp3V3f1ojqywGKVCBYqXhuttJ4qxv1URAJHNi-By99cPiBWQSak--WQVzupagU2DKA6YAB1hc-JZsrw2waqAMPk_vr5f5ttCgI9YRQgmGRfAxaEKajj_DHpsQsx6N_AgmLJ_5ydLJGJuKvv1J70VqH8DOVw6tkhBuvC6SkDxsHZeL"/>
+</div>
+<div class="md:col-span-2 rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<img alt="Examination Room" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="A close-up of a state-of-the-art medical examination room featuring advanced diagnostic equipment and ergonomic seating. The lighting is precise and bright, emphasizing clinical excellence. The interior design uses a professional palette of whites, blues, and polished metallic surfaces, conveying reliability and modern technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvodxR6YKOxjXnkxaCoTdbcB4rYEwUtwZknWMTsRZhXJRoI5wATCvlVPGF2Cv4Q3oC7yJV1-o6XeX4x953E7YK2op6Ofwu0jF4oeSlNAKeJW7YQt1XybDhevy4YAqMdcqANrwN-1UcSSSYa57OBnq2NVeYrsDvhAgbbXTzGQrqSH1nxXt-HxP2OJEc05k4WJN46l0OO0cwmTrRJ3W4LFPM4WqpeFjVsvB8luqgpe8fvUCe2Op9ry-z63RH62-maU692FiJBGgv"/>
+</div>
+<div class="rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<img alt="Waiting Area" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="A modern hospital waiting area with comfortable, designer lounge chairs in soft gray fabric. Minimalist plants add a touch of nature to the sterile environment. Soft ambient lighting creates a calm, high-stakes healthcare environment, adhering to the quiet UI design principles of trust and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-p6g-3o1yvY0LrztQ-7-6wY3iJMhZzJsTVMo7iD7w1p3ym7Hc6Q0wG4xMOrXk94uzm5n-SxnQUFWcejvhuqHoVx2PJt8A-ctCWfDWuaYW0uxipybkYo7LjBQqnbKgg4NU97bri_seSBL2x41vY_fxPlYh3xty_Qab7mJmQpzLevl_chjZ6kwudwfpUNRZ1Vm1jShU8zcrOsp5URhZeaGbHtDXtEtor-WzMtODsZdb6q9TduGMA17MQoNjmJhOmzqIusfOsgE7"/>
+</div>
+<div class="rounded-xl overflow-hidden border border-outline-variant shadow-sm relative">
+<img alt="Clinic Building" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="An exterior shot of a contemporary healthcare center with sleek glass and white steel architecture. The building is surrounded by well-maintained greenery and clear blue skies. The image evokes a sense of institutional trust and modern clinical advancement, perfectly aligned with the corporate healthcare visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABpnBiaQFgGcHm39zg3CQDOzOrmJ2QuDldDAj4yuRFe6IyRdj7qqpRQ5QYTDYmtUb8XXb7qd8d12pVnr21PrKJGCsaTS8ConW68H4nDWYdwfH04e2RzxbP5vlQmFt_T2pmZ00iT6kpG69-oe7jjdy9YcR0DQyeFQm2yB7F8_zqIWOlnVTUOBB1NtsFMkPcWzivIJzusy4StkcnzjnN-06MFmCp5T4JpG8hL1tJ2-pEF9XyTJEiwUH-VJ5UpJ2ETAs-LKorBbmL"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer">
+<span class="text-white font-label-md">+12 Hình ảnh</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Details -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Clinic Header & Description -->
+<div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-start justify-between mb-4">
+<div>
+<h1 class="font-h1 text-on-surface mb-2">Phòng Khám Đa Khoa Sài Gòn Tâm Anh</h1>
+<div class="flex items-center gap-4 text-slate-500">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-blue-600 text-lg" data-icon="location_on">location_on</span>
+<span class="text-body-md">2B Phổ Quang, Phường 2, Tân Bình, TP. HCM</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-on-surface">4.9</span>
+<span class="text-caption">(1,250 đánh giá)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="border-t border-slate-100 pt-6">
+<h2 class="font-h2 text-on-surface mb-4">Giới thiệu</h2>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                            Phòng khám Đa khoa Sài Gòn Tâm Anh được trang bị hệ thống máy móc, thiết bị y tế hiện đại, cao cấp hàng đầu thế giới từ các nước G7. Chúng tôi tự hào mang đến quy trình thăm khám và điều trị chuyên nghiệp, tận tâm, đảm bảo độ chính xác cao và an toàn tuyệt đối cho bệnh nhân. Đội ngũ y bác sĩ là những chuyên gia đầu ngành, có nhiều năm kinh nghiệm tại các bệnh viện lớn.
+                        </p>
+</div>
+</div>
+<!-- Doctor Information -->
+<div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+<h2 class="font-h2 text-on-surface mb-6">Đội ngũ bác sĩ chuyên khoa</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex items-center gap-4 p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors">
+<img alt="Doctor Profile" class="w-16 h-16 rounded-full object-cover bg-slate-100" data-alt="A professional headshot of a mature male cardiologist in a white medical coat with a stethoscope. He has a warm, confident smile, set against a blurred background of a modern clinical office. The lighting is soft and flattering, emphasizing a reliable and expert healthcare persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5LV0kWb_xZbbF-HdnL7s3BapAx78OPg2y3HM_PuX-zVSiAe-UJ6Kbw2JbA7uT2JOBpr6J12Ycjwd4zNTYE3G5lxkNYGCoaLI0774jILmPWukH_U1809aDkAdvE-6LjO9RTyeRb6kqnhw1hdVQgfq3c4F510FWogRlvbZNzE8hnB3mqZmi4ojrG21VR1VTD2wz8HOBjcucpRBiZb_IPCn2kOjj0sKVXWxlgl31I5oKRCjohdzM5T175P1X-uAjzhbWLT1r6rMH"/>
+<div>
+<h3 class="font-label-md text-on-surface">PGS.TS.BS Nguyễn Văn A</h3>
+<p class="text-caption text-blue-600 font-medium">Chuyên khoa Tim mạch</p>
+<p class="text-caption text-slate-500 mt-1">Hơn 25 năm kinh nghiệm</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors">
+<img alt="Doctor Profile" class="w-16 h-16 rounded-full object-cover bg-slate-100" data-alt="A professional portrait of a female pediatrician in a sterile, modern healthcare setting. She is wearing a stethoscope and a white clinical coat, projecting a friendly yet professional demeanor. The environment is bright and airy, with soft pastel blue accents that align with a high-end patient care design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOKB1imgBgeoHYp2SLtACwvMGk2NuNAHgpyQOxvJJQuKYxIKZAtl11Pme-QdjGPzYE9OlXDDGAA8VgGoF4bPPfhqYGkKxosTtxSfmCNvALGtsRKeJrKNPLq02tKLw38kbK60Lo7EkNrEbza_wCm-7ZOsUi_2DwNAlbADrrGjU7OeDdXb2yQvSNohyBk7qWkp2KF7ZXCrN7vny6sCIhLp0_AxSBcCn9g8a_q0uNf0NAKc3eS6Ip1-d8V2odL6Ue51NiJA7EZhsw"/>
+<div>
+<h3 class="font-label-md text-on-surface">ThS.BS Trần Thị B</h3>
+<p class="text-caption text-blue-600 font-medium">Chuyên khoa Nhi</p>
+<p class="text-caption text-slate-500 mt-1">Hơn 15 năm kinh nghiệm</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Appointment Scheduler -->
+<div class="lg:col-span-1">
+<div class="sticky top-24 space-y-6">
+<div class="bg-white rounded-xl border border-slate-200 shadow-md overflow-hidden">
+<div class="bg-blue-700 p-6 text-white">
+<h3 class="font-h3">Lịch khám trống</h3>
+<p class="text-caption opacity-90">Chọn thời gian phù hợp để đặt lịch</p>
+</div>
+<div class="p-6">
+<!-- Date Selector -->
+<div class="flex gap-3 overflow-x-auto hide-scrollbar mb-6 pb-2">
+<button class="flex-shrink-0 w-14 py-3 rounded-lg border-2 border-blue-700 bg-blue-50 text-center">
+<span class="block text-[10px] uppercase font-bold text-blue-700">T2</span>
+<span class="block text-lg font-bold text-blue-700">18</span>
+</button>
+<button class="flex-shrink-0 w-14 py-3 rounded-lg border border-slate-200 text-center hover:bg-slate-50">
+<span class="block text-[10px] uppercase font-bold text-slate-500">T3</span>
+<span class="block text-lg font-bold text-on-surface">19</span>
+</button>
+<button class="flex-shrink-0 w-14 py-3 rounded-lg border border-slate-200 text-center hover:bg-slate-50">
+<span class="block text-[10px] uppercase font-bold text-slate-500">T4</span>
+<span class="block text-lg font-bold text-on-surface">20</span>
+</button>
+<button class="flex-shrink-0 w-14 py-3 rounded-lg border border-slate-200 text-center hover:bg-slate-50">
+<span class="block text-[10px] uppercase font-bold text-slate-500">T5</span>
+<span class="block text-lg font-bold text-on-surface">21</span>
+</button>
+<button class="flex-shrink-0 w-14 py-3 rounded-lg border border-slate-200 text-center hover:bg-slate-50">
+<span class="block text-[10px] uppercase font-bold text-slate-500">T6</span>
+<span class="block text-lg font-bold text-on-surface">22</span>
+</button>
+</div>
+<!-- Time Slots -->
+<div class="space-y-4 mb-8">
+<h4 class="font-label-sm text-slate-500 uppercase tracking-wider">Buổi Sáng</h4>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 text-sm font-medium border border-slate-200 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all">08:00</button>
+<button class="py-2 text-sm font-medium border border-slate-200 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all">09:00</button>
+<button class="py-2 text-sm font-medium border border-slate-200 rounded-lg bg-slate-50 text-slate-300 cursor-not-allowed">10:00</button>
+</div>
+<h4 class="font-label-sm text-slate-500 uppercase tracking-wider mt-4">Buổi Chiều</h4>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 text-sm font-medium border border-slate-200 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all">14:00</button>
+<button class="py-2 text-sm font-medium border border-slate-200 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all">15:30</button>
+<button class="py-2 text-sm font-medium border border-blue-600 bg-blue-600 text-white rounded-lg shadow-sm">17:00</button>
+</div>
+</div>
+<!-- CTA -->
+<div class="space-y-4">
+<button class="w-full py-4 bg-blue-700 text-white font-label-md rounded-xl shadow-lg shadow-blue-700/20 active:opacity-80 transition-all">
+                                    Đặt lịch khám ngay
+                                </button>
+<p class="text-caption text-slate-500 text-center">
+<span class="material-symbols-outlined text-[14px] align-middle mr-1" data-icon="lock">lock</span>
+                                    Yêu cầu đăng nhập để hoàn tất đặt lịch
+                                </p>
+</div>
+</div>
+<div class="border-t border-slate-100 bg-slate-50 p-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-green-600" data-icon="verified">verified</span>
+<span class="text-caption text-on-surface-variant">Phòng khám đã được xác minh bởi PatientCare</span>
+</div>
+</div>
+<!-- Additional Info Card -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h4 class="font-label-md mb-4">Thông tin thêm</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-blue-600" data-icon="credit_score">credit_score</span>
+                                Chấp nhận bảo hiểm y tế
+                            </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-blue-600" data-icon="directions_car">directions_car</span>
+                                Có bãi đỗ xe miễn phí
+                            </li>
+<li class="flex items-center gap-3 text-sm text-slate-600">
+<span class="material-symbols-outlined text-blue-600" data-icon="wifi">wifi</span>
+                                Wifi tốc độ cao tại sảnh chờ
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-slate-50 mt-16">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-4 max-w-7xl mx-auto">
+<p class="font-['Inter'] text-xs text-slate-500">© 2024 ClinicPulse Management Systems. Clinical Precision.</p>
+<div class="flex gap-8">
+<a class="text-slate-400 hover:text-slate-600 transition-opacity duration-150 text-xs" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-slate-600 transition-opacity duration-150 text-xs" href="#">Terms of Service</a>
+<a class="text-slate-400 hover:text-slate-600 transition-opacity duration-150 text-xs" href="#">Support</a>
+</div>
+</div>
+</footer>
+</body></html>

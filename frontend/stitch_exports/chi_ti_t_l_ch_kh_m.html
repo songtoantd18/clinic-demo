@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#dfe8ff",
+                        "primary-fixed": "#dae2ff",
+                        "on-tertiary-container": "#d5ccff",
+                        "outline-variant": "#c3c6d6",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001848",
+                        "secondary-fixed-dim": "#65dca4",
+                        "background": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#82f9be",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-background": "#091c35",
+                        "outline": "#737685",
+                        "on-tertiary-fixed": "#1a0063",
+                        "surface-container-low": "#f0f3ff",
+                        "on-surface": "#091c35",
+                        "on-secondary-fixed-variant": "#005235",
+                        "secondary-fixed": "#82f9be",
+                        "primary-container": "#0052cc",
+                        "on-tertiary-fixed-variant": "#4633a0",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "tertiary-container": "#5b49b5",
+                        "on-secondary-container": "#00734c",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#432f9c",
+                        "surface": "#f9f9ff",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#20314b",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e5deff",
+                        "primary": "#003d9b",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d6e3ff",
+                        "secondary": "#006c47",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed-dim": "#c9bfff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "surface-container-highest": "#d6e3ff",
+                        "on-primary-container": "#c4d2ff",
+                        "surface-container": "#e7eeff",
+                        "surface-dim": "#cadbfc",
+                        "inverse-on-surface": "#ecf0ff",
+                        "on-secondary-fixed": "#002113",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "h3": ["Inter"],
+                        "h1": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h2": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
+<div class="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-blue-700 tracking-tight">PatientCare</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 hover:text-blue-600 transition-all font-body-md" href="#">Find Clinics</a>
+<a class="text-blue-700 font-semibold border-b-2 border-blue-700 font-body-md" href="#">My Appointments</a>
+<a class="text-slate-500 hover:text-blue-600 transition-all font-body-md" href="#">Medical Records</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="help_outline">help_outline</span>
+<div class="flex items-center gap-2 cursor-pointer bg-slate-50/50 px-3 py-1.5 rounded-full border border-slate-100">
+<div class="w-7 h-7 rounded-full bg-primary-container flex items-center justify-center text-white text-[10px] font-bold">BS</div>
+<span class="font-label-md text-on-surface">Profile</span>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 max-w-7xl mx-auto w-full">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col w-64 border-r border-slate-200 bg-white shadow-sm h-[calc(100vh-64px)] sticky top-16">
+<div class="p-6 flex flex-col gap-1">
+<div class="flex items-center gap-3 mb-6">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional medical administrator in a bright, modern clinic setting. The lighting is clean and clinical with soft blue and white tones reflecting a trustworthy healthcare environment. High-quality corporate aesthetic with sharp focus on the professional person." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj9vNJ4-jFOxxFT73aa5pX2HizpfNOB4wr4UTBje1S-B6_GGAitJ4dJSFzsW1XRiNS1FQLtBc5mM1QGpXNmlfsJK4RedxwUyfXT4FqabxzoKInC8qi6JEP5lqbPKaBwYekrOdy8H-SFF1esDy8txIwIikNrXfn0BFYc0Cbq-8jYYbcZdAZH0WgChkUsi7URZuPXxE5GpVIOrXNmvvDaS4Q4ffc5exz22cZjUkk6r6yi1PUgxyPi9Y8rfGZmbwNKpkt1d27-FCH"/>
+<div>
+<p class="font-label-md text-on-surface">Clinic Administrator</p>
+<p class="text-[11px] text-slate-500 uppercase tracking-wider">Health Management</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 transition-colors rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-blue-50 text-blue-700 border-r-4 border-blue-700 transition-colors rounded-r-none font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                        Order History
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 transition-colors rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="local_hospital">local_hospital</span>
+                        Clinic Info
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 transition-colors rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-8 lg:p-12 overflow-y-auto">
+<div class="max-w-4xl mx-auto">
+<!-- Header Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<div class="flex items-center gap-2 text-slate-500 mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+<span class="text-caption font-medium">QUAY LẠI DANH SÁCH</span>
+</div>
+<h1 class="font-h1 text-on-background">Chi tiết lịch khám #CK-9928</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 rounded-xl border border-error text-error font-label-md hover:bg-error-container/20 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span>
+                            Hủy lịch khám
+                        </button>
+<button class="px-6 py-2.5 rounded-xl bg-primary text-white font-label-md hover:shadow-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="save">save</span>
+                            Lưu thay đổi
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Patient Summary Card -->
+<div class="md:col-span-1 space-y-6">
+<div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+<h2 class="font-h3 text-on-surface mb-6 border-b border-slate-100 pb-4">Bệnh nhân</h2>
+<div class="flex flex-col items-center mb-6">
+<img class="w-24 h-24 rounded-full object-cover border-4 border-surface-container mb-4" data-alt="A portrait of a male patient in his 30s with a friendly expression. The lighting is soft and natural, emphasizing a calm and professional atmosphere. The background is a clean, neutral interior of a high-end medical clinic with a minimalist aesthetic and blue-white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARjtMeaECtxO1zYYzk_vHKE6n7x0F_QVtNGzi49gIWCq7n6RHPUHVIGNHcyZbZr5Qwj72SnPDOND64-fEviLUldydoYcNZKCzMqsYxp1C2pLCQ3daf5MCCdLVWjzfxUpiTmaqvZh8PPiDDiKRXIRfKJBxELmMF08F5wsKmjrCdCdGKIz2RCziCQDoRZRW-5AhxaRqrK1QwNFHIjgLeiiPx-0SOcAUFhtSCedPWPebSJlSx92Sv12-lFvMNqY3aULWxOymwmgVp"/>
+<p class="font-h3 text-on-surface text-center">Nguyễn Văn An</p>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-caption font-bold mt-2">BỆNH NHÂN THÂN THIẾT</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+<span class="font-body-md">0901 234 567</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+<span class="font-body-md">an.nguyen@example.com</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-primary" data-icon="cake">cake</span>
+<span class="font-body-md">15/08/1992 (32 tuổi)</span>
+</div>
+</div>
+</div>
+<!-- Vital Metrics -->
+<div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+<h2 class="font-label-md text-slate-500 uppercase tracking-widest mb-4">Chỉ số sinh tồn</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-surface-container-low rounded-lg">
+<p class="text-caption text-slate-500">Huyết áp</p>
+<p class="font-h3 text-primary">120/80</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<p class="text-caption text-slate-500">Nhịp tim</p>
+<p class="font-h3 text-secondary">72 bpm</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Clinical Details -->
+<div class="md:col-span-2 space-y-6">
+<!-- Appointment Time Editable -->
+<div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-h3 text-on-surface">Thời gian khám</h2>
+<span class="material-symbols-outlined text-slate-400" data-icon="edit_calendar">edit_calendar</span>
+</div>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="flex-1">
+<label class="font-label-sm text-slate-500 block mb-1">Ngày hẹn</label>
+<input class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 font-body-md focus:ring-2 focus:ring-primary outline-none" type="date" value="2024-11-20"/>
+</div>
+<div class="flex-1">
+<label class="font-label-sm text-slate-500 block mb-1">Giờ hẹn</label>
+<input class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 font-body-md focus:ring-2 focus:ring-primary outline-none" type="time" value="09:30"/>
+</div>
+</div>
+</div>
+<!-- Diagnosis & Symptoms -->
+<div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+<h2 class="font-h3 text-on-surface mb-4">Tình trạng bệnh &amp; Chẩn đoán</h2>
+<div class="space-y-4">
+<div>
+<label class="font-label-sm text-slate-500 block mb-1">Triệu chứng lâm sàng</label>
+<textarea class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 font-body-md focus:ring-2 focus:ring-primary outline-none" placeholder="Nhập triệu chứng của bệnh nhân..." rows="3">Bệnh nhân đau họng kéo dài 3 ngày, sốt nhẹ về chiều, người mệt mỏi, chán ăn. Có tiền sử dị ứng thời tiết.</textarea>
+</div>
+<div>
+<label class="font-label-sm text-slate-500 block mb-1">Chẩn đoán sơ bộ</label>
+<input class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 font-body-md focus:ring-2 focus:ring-primary outline-none" type="text" value="Viêm họng cấp tính / Theo dõi sốt siêu vi"/>
+</div>
+</div>
+</div>
+<!-- Prescription & Lab Results -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="flex border-b border-slate-200">
+<button class="flex-1 py-4 font-label-md text-primary bg-primary/5 border-b-2 border-primary">Đơn thuốc</button>
+<button class="flex-1 py-4 font-label-md text-slate-500 hover:bg-slate-50 transition-colors">Kết quả xét nghiệm</button>
+</div>
+<div class="p-6">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<p class="font-label-md text-on-surface">Danh mục thuốc chỉ định</p>
+<button class="text-primary font-label-sm flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span> Thêm thuốc
+                                        </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-slate-500 text-caption uppercase border-b border-slate-100">
+<th class="py-3 px-2">Tên thuốc</th>
+<th class="py-3 px-2">Liều lượng</th>
+<th class="py-3 px-2">Cách dùng</th>
+<th class="py-3 px-2"></th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr class="border-b border-slate-50 hover:bg-slate-50/50">
+<td class="py-4 px-2 font-medium">Amoxicillin 500mg</td>
+<td class="py-4 px-2">20 viên</td>
+<td class="py-4 px-2 text-slate-500">Sáng 1, Chiều 1 sau ăn</td>
+<td class="py-4 px-2 text-right">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-error" data-icon="delete">delete</span>
+</td>
+</tr>
+<tr class="border-b border-slate-50 hover:bg-slate-50/50">
+<td class="py-4 px-2 font-medium">Paracetamol 500mg</td>
+<td class="py-4 px-2">10 viên</td>
+<td class="py-4 px-2 text-slate-500">Uống khi sốt &gt;38.5 độ</td>
+<td class="py-4 px-2 text-right">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-error" data-icon="delete">delete</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-4">
+<label class="font-label-sm text-slate-500 block mb-1">Ghi chú kết quả xét nghiệm</label>
+<textarea class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 font-body-md focus:ring-2 focus:ring-primary outline-none" placeholder="Nhập kết quả xét nghiệm máu, X-quang..." rows="3">Chỉ số bạch cầu hơi cao (11.5 G/L). Hình ảnh X-quang phổi bình thường. Các chỉ số khác trong giới hạn cho phép.</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-slate-50 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-4 max-w-7xl mx-auto">
+<p class="font-body-md text-xs text-slate-500">© 2024 ClinicPulse Management Systems. Clinical Precision.</p>
+<div class="flex items-center gap-8">
+<a class="font-body-md text-xs text-slate-400 hover:text-slate-600 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-md text-xs text-slate-400 hover:text-slate-600 transition-opacity" href="#">Terms of Service</a>
+<a class="font-body-md text-xs text-slate-400 hover:text-slate-600 transition-opacity" href="#">Support</a>
+</div>
+</div>
+</footer>
+</body></html>
