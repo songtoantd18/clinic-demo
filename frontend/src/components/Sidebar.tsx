@@ -45,10 +45,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
           <span className="material-symbols-outlined">local_hospital</span>
           {commonData.navigation.clinic.info}
         </NavLink>
-        <Link to="/patient-home" className={inactiveClass}>
-          <span className="material-symbols-outlined">person</span>
-          {commonData.navigation.clinic.patientView}
-        </Link>
       </nav>
       {/* data-stitch-id: sidebar-footer-002 */}
       <div className="p-4 border-t border-slate-200 dark:border-slate-800 transition-colors">

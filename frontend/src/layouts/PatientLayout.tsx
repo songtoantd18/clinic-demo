@@ -36,9 +36,7 @@ export const PatientLayout: React.FC<PatientLayoutProps> = ({ children }) => {
               <NavLink to="/patient-profile" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
                 Cá nhân
               </NavLink>
-              <Link to="/dashboard" className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 font-body-md text-sm tracking-wide transition-all">
-                {commonData.navigation.patient.clinicView}
-              </Link>
+
             </nav>
           </div>
           <div className="flex items-center gap-4">
