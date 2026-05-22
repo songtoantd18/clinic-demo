@@ -51,7 +51,8 @@ export const PatientLogin: React.FC<PatientLoginProps> = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:3000/auth/google';
+    const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+    window.location.href = `${baseUrl}/auth/google`;
   };
 
   return (
