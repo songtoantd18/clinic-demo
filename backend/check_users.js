@@ -39,7 +39,7 @@ async function check() {
     ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : undefined
   });
 
-  const [rows] = await connection.query('SELECT id, email, role, clinic_name, full_name FROM users');
+  const [rows] = await connection.query('SELECT id, email, role, password, clinic_name, full_name FROM users');
   console.log(JSON.stringify(rows, null, 2));
   await connection.end();
 }
