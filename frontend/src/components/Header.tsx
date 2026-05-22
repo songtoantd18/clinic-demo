@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
+import logoUrl from '../assets/logo.png';
 import { commonData } from '../data/mockData';
 import { clearAuthToken } from '../services/api';
 
@@ -27,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
       <div className="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
         <div className="flex items-center gap-8">
           <Link to="/dashboard" className="flex items-center gap-2 text-lg font-black text-blue-700 dark:text-blue-400">
-            <img src="/src/assets/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
+            <img src={logoUrl} alt="Logo" className="w-8 h-8 object-contain" />
             {commonData.navigation.clinic.brand}
           </Link>
           <nav className="hidden md:flex gap-6">

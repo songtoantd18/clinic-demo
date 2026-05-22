@@ -5,6 +5,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { commonData } from '../data/mockData';
+import logoUrl from '../assets/logo.png';
 
 interface SidebarProps {
   readonly className?: string;
@@ -19,7 +20,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
     <aside className={`fixed left-0 top-0 flex flex-col h-screen w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm z-50 transition-colors ${className}`}>
       <div className="p-6">
         <div className="flex items-center gap-2 mb-4">
-          <img src="/src/assets/logo.png" alt="Logo" className="w-10 h-10 object-contain" />
+          <img src={logoUrl} alt="Logo" className="w-10 h-10 object-contain" />
           <h1 className="text-xl font-bold text-blue-700 dark:text-blue-400 tracking-tight">
             {commonData.navigation.clinic.portal}
           </h1>

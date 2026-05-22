@@ -3,7 +3,8 @@
  */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import logoUrl from '../assets/logo.png';
 import { commonData } from '../data/mockData';
 
 interface ClinicPulseMainProps {
@@ -16,7 +17,7 @@ export const ClinicPulseMain: React.FC<ClinicPulseMainProps> = () => {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-background-dark flex flex-col items-center justify-center p-6 transition-colors">
       <div className="mb-12 flex flex-col items-center">
-        <img src="/src/assets/logo.png" alt="Logo" className="w-20 h-20 object-contain mb-4 drop-shadow-lg" />
+        <img src={logoUrl} alt="Logo" className="w-20 h-20 object-contain mb-4 drop-shadow-lg" />
         <h1 className="text-3xl font-black text-blue-700 dark:text-blue-400 uppercase tracking-widest">ClinicPulse</h1>
       </div>
       {/* data-stitch-id: main-container-001 */}
