@@ -33,6 +33,9 @@ export const PatientLayout: React.FC<PatientLayoutProps> = ({ children }) => {
               <NavLink to="/appointment-detail" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
                 {commonData.navigation.patient.medicalRecords}
               </NavLink>
+              <NavLink to="/patient-profile" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
+                Cá nhân
+              </NavLink>
               <Link to="/dashboard" className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 font-body-md text-sm tracking-wide transition-all">
                 {commonData.navigation.patient.clinicView}
               </Link>
@@ -48,9 +51,9 @@ export const PatientLayout: React.FC<PatientLayoutProps> = ({ children }) => {
               />
             </div>
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full bg-primary-container dark:bg-blue-900/40 flex items-center justify-center text-on-primary-container dark:text-blue-300 font-bold text-xs cursor-pointer">
+              <Link to="/patient-profile" className="h-8 w-8 rounded-full bg-primary-container dark:bg-blue-900/40 flex items-center justify-center text-on-primary-container dark:text-blue-300 font-bold text-xs cursor-pointer hover:opacity-85 transition-opacity">
                 {commonData.navigation.patient.avatarLabel}
-              </div>
+              </Link>
             </div>
           </div>
         </div>

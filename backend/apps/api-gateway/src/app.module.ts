@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { AppointmentModule } from './appointment/appointment.module';
 import { LifecycleMiddleware } from './common/lifecycle/lifecycle.middleware';
+import { DebugController } from './debug.controller';
 
 @Module({
   imports: [
@@ -12,11 +13,12 @@ import { LifecycleMiddleware } from './common/lifecycle/lifecycle.middleware';
       isGlobal: true,
       envFilePath: '.env',
     }),
-  DatabaseModule,             // Kết nối database (TypeORM)
+    DatabaseModule,             // Kết nối database (TypeORM)
     AuthModule,                 // Module xử lý authentication ⭐
     UserModule,                 // Module quản lý user
     AppointmentModule,          // Module quản lý appointment
   ],
+  controllers: [DebugController],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

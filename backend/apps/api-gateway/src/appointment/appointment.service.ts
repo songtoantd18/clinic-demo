@@ -10,6 +10,7 @@ import { Appointment, AppointmentStatus, User, UserRole } from '@app/database';
 import { CreateAppointmentDto } from './dto/create-appointment.dto';
 import { UpdateAppointmentDto } from './dto/update-appointment.dto';
 import { UpdatePrescriptionDto } from './dto/update-prescription.dto';
+import * as nodemailer from 'nodemailer';
 
 @Injectable()
 export class AppointmentService {
@@ -138,6 +139,23 @@ export class AppointmentService {
       if (!isAvailable) {
         throw new BadRequestException('New time slot is not available');
       }
+
+      // Notify patient of rescheduling
+      const oldTime = new Date(appointment.appointmentTime).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+      const newTime = new Date(updateAppointmentDto.appointmentTime).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+      const patientEmail = appointment.patientUser?.email;
+      if (patientEmail) {
+        this.sendNotificationEmail(
+          patientEmail,
+          'Lịch hẹn khám bệnh của bạn đã được thay đổi / Appointment Rescheduled',
+          `<p>Xin chào <b>${appointment.patientUser?.fullName || 'Bệnh nhân'}</b>,</p>
+           <p>Lịch hẹn khám tại phòng khám <b>${appointment.clinicUser?.clinicName || 'Clinic'}</b> của bạn đã được thay đổi thời gian.</p>
+           <p>Thời gian cũ: <b>${oldTime}</b></p>
+           <p>Thời gian mới: <b>${newTime}</b></p>
+           <p>Vui lòng đến đúng giờ để tiến hành khám chữa bệnh.</p>
+           <p>Trân trọng,<br>Hệ thống quản lý ClinicPulse</p>`
+        ).catch(e => this.logger.error('Email send task failed', e));
+      }
     }
 
     Object.assign(appointment, updateAppointmentDto);
@@ -156,7 +174,62 @@ export class AppointmentService {
   async cancel(id: string) {
     const appointment = await this.findOne(id);
     appointment.status = AppointmentStatus.CANCELLED;
-    return await this.appointmentRepository.save(appointment);
+    const result = await this.appointmentRepository.save(appointment);
+
+    const patientEmail = appointment.patientUser?.email;
+    if (patientEmail) {
+      const appTime = new Date(appointment.appointmentTime).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+      this.sendNotificationEmail(
+        patientEmail,
+        'Lịch hẹn khám bệnh đã bị hủy / Appointment Cancelled',
+        `<p>Xin chào <b>${appointment.patientUser?.fullName || 'Bệnh nhân'}</b>,</p>
+         <p>Lịch hẹn khám tại phòng khám <b>${appointment.clinicUser?.clinicName || 'Clinic'}</b> vào lúc <b>${appTime}</b> đã bị hủy.</p>
+         <p>Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ hotline phòng khám.</p>
+         <p>Trân trọng,<br>Hệ thống quản lý ClinicPulse</p>`
+      ).catch(e => this.logger.error('Email send task failed', e));
+    }
+
+    return result;
+  }
+
+  private async sendNotificationEmail(to: string, subject: string, htmlContent: string) {
+    const smtpHost = process.env.SMTP_HOST || 'smtp.gmail.com';
+    const smtpPort = +(process.env.SMTP_PORT || 587);
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+
+    console.log(`\n📧 [EMAIL NOTIFICATION OUTBOX]`);
+    console.log(`To: ${to}`);
+    console.log(`Subject: ${subject}`);
+    console.log(`Body: ${htmlContent.replace(/<[^>]*>/g, ' ').trim()}`);
+    console.log(`---------------------------------\n`);
+
+    if (!smtpUser || smtpUser.includes('your-email') || !smtpPass) {
+      this.logger.warn('SMTP user or password not configured in .env. Skipping real email sending.');
+      return;
+    }
+
+    try {
+      const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpPort === 465,
+        auth: {
+          user: smtpUser,
+          pass: smtpPass,
+        },
+      });
+
+      await transporter.sendMail({
+        from: `"ClinicPulse" <${smtpUser}>`,
+        to,
+        subject,
+        html: htmlContent,
+      });
+      this.logger.log(`Email sent successfully to ${to}`);
+    } catch (error) {
+      this.logger.error(`Failed to send email to ${to}: ${error.message}`);
+    }
   }
 
   async submitDraft(id: string, userId: string) {

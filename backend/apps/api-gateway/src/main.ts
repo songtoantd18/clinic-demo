@@ -11,6 +11,8 @@ async function bootstrap() {
     origin: [
       process.env.FRONTEND_CLINIC_URL || 'http://localhost:3001',
       process.env.FRONTEND_PATIENT_URL || 'http://localhost:3002',
+      'http://localhost:5173',
+      'http://localhost:5174',
     ],
     credentials: true,
   });

@@ -19,6 +19,8 @@ import PatientHome from './pages/PatientHome';
 import PatientHistory from './pages/PatientHistory';
 import QuickBooking from './pages/QuickBooking';
 import AppointmentDetail from './pages/AppointmentDetail';
+import PatientProfile from './pages/PatientProfile';
+import AuthCallback from './pages/AuthCallback';
 
 // Khác
 import ClinicPulseMain from './pages/ClinicPulseMain';
@@ -27,14 +29,15 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Mặc định chuyển về Dashboard */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {/* Mặc định chuyển về Trang chủ chọn cổng */}
+        <Route path="/" element={<Navigate to="/main" replace />} />
         
         {/* Phía Phòng Khám */}
         <Route path="/clinic-login" element={<ClinicLogin />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/clinic-info" element={<ClinicInfo />} />
         <Route path="/clinic-detail" element={<ClinicDetail />} />
+        <Route path="/clinics/:id" element={<ClinicDetail />} />
         <Route path="/booking-history" element={<BookingHistory />} />
         <Route path="/medical-records" element={<MedicalRecords />} />
 
@@ -44,6 +47,9 @@ const App: React.FC = () => {
         <Route path="/patient-history" element={<PatientHistory />} />
         <Route path="/quick-booking" element={<QuickBooking />} />
         <Route path="/appointment-detail" element={<AppointmentDetail />} />
+        <Route path="/appointments/:id" element={<AppointmentDetail />} />
+        <Route path="/patient-profile" element={<PatientProfile />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
 
         {/* Màn hình chính */}
         <Route path="/main" element={<ClinicPulseMain />} />
