@@ -12,6 +12,8 @@ import ClinicInfo from './pages/ClinicInfo';
 import ClinicDetail from './pages/ClinicDetail';
 import BookingHistory from './pages/BookingHistory';
 import MedicalRecords from './pages/MedicalRecords';
+// import Demo1 from './pages/demo1';
+import Demo1 from './pages/Demo1'
 
 // Quản lý bệnh nhân
 import PatientLogin from './pages/PatientLogin';
@@ -25,33 +27,108 @@ import AuthCallback from './pages/AuthCallback';
 // Khác
 import ClinicPulseMain from './pages/ClinicPulseMain';
 
+// Protected Routes
+import { ProtectedRoute } from './components/ProtectedRoute';
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
         {/* Mặc định chuyển về Trang chủ chọn cổng */}
         <Route path="/" element={<Navigate to="/main" replace />} />
-        
+
         {/* Phía Phòng Khám */}
         <Route path="/clinic-login" element={<ClinicLogin />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/clinic-info" element={<ClinicInfo />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute allowedRole="clinic">
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/clinic-info" 
+          element={
+            <ProtectedRoute allowedRole="clinic">
+              <ClinicInfo />
+            </ProtectedRoute>
+          } 
+        />
         <Route path="/clinic-detail" element={<ClinicDetail />} />
         <Route path="/clinics/:id" element={<ClinicDetail />} />
-        <Route path="/booking-history" element={<BookingHistory />} />
-        <Route path="/medical-records" element={<MedicalRecords />} />
+        <Route 
+          path="/booking-history" 
+          element={
+            <ProtectedRoute allowedRole="clinic">
+              <BookingHistory />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/medical-records" 
+          element={
+            <ProtectedRoute allowedRole="clinic">
+              <MedicalRecords />
+            </ProtectedRoute>
+          } 
+        />
 
         {/* Phía Bệnh Nhân */}
         <Route path="/patient-login" element={<PatientLogin />} />
-        <Route path="/patient-home" element={<PatientHome />} />
-        <Route path="/patient-history" element={<PatientHistory />} />
-        <Route path="/quick-booking" element={<QuickBooking />} />
-        <Route path="/appointment-detail" element={<AppointmentDetail />} />
-        <Route path="/appointments/:id" element={<AppointmentDetail />} />
-        <Route path="/patient-profile" element={<PatientProfile />} />
+        <Route 
+          path="/patient-home" 
+          element={
+            <ProtectedRoute allowedRole="patient">
+              <PatientHome />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/patient-history" 
+          element={
+            <ProtectedRoute allowedRole="patient">
+              <PatientHistory />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/quick-booking" 
+          element={
+            <ProtectedRoute allowedRole="patient">
+              <QuickBooking />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/appointment-detail" 
+          element={
+            <ProtectedRoute allowedRole="patient">
+              <AppointmentDetail />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/appointments/:id" 
+          element={
+            <ProtectedRoute allowedRole="patient">
+              <AppointmentDetail />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/patient-profile" 
+          element={
+            <ProtectedRoute allowedRole="patient">
+              <PatientProfile />
+            </ProtectedRoute>
+          } 
+        />
         <Route path="/auth/callback" element={<AuthCallback />} />
 
         {/* Màn hình chính */}
+        <Route path="/demo1" element={<Demo1 />} />
+
         <Route path="/main" element={<ClinicPulseMain />} />
       </Routes>
     </BrowserRouter>

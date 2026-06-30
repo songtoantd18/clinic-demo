@@ -26,6 +26,11 @@ export class UserService {
       throw new BadRequestException('Role mismatch');
     }
 
+    // Convert dateOfBirth string to Date object for database compatibility
+    if (updateDto.dateOfBirth) {
+      updateDto.dateOfBirth = new Date(updateDto.dateOfBirth);
+    }
+
     // Update fields
     Object.assign(user, updateDto);
 

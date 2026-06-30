@@ -96,3 +96,324 @@ Story:
 
 
 note:hỏi gpt thử cái nào là function trong frotnend làm trước còn cái nào nâng cao thì từ từ làm để sau 
+
+nâng cao 
+# Backend Scaling & Booking System Notes
+
+## Mục tiêu
+Thiết kế backend booking clinic:
+- chống double booking
+- chống overslot
+- chịu tải concurrent cao
+- không sập khi nhiều request cùng lúc
+- dùng free-tier services
+
+---
+
+# Stack Free-tier
+
+## Frontend
+- Vercel
+
+## Backend
+- Render (NestJS)
+
+## Database
+- Aiven MySQL
+hoặc
+- Supabase PostgreSQL
+
+## Redis / Queue
+- Upstash Redis
+
+## Protection
+- Cloudflare
+
+---
+
+# Kiến trúc tổng quát
+
+User
+↓
+Cloudflare
+↓
+Vercel Frontend
+↓
+Render NestJS API
+↓
+Redis Queue (BullMQ)
+↓
+Worker
+↓
+MySQL/Postgres
+
+---
+
+# Vì sao cần Queue?
+
+Nếu không dùng queue:
+
+request
+↓
+NestJS
+↓
+DB trực tiếp
+
+=> traffic cao sẽ:
+- nghẽn DB
+- too many connections
+- timeout
+- crash free-tier
+
+---
+
+# Queue flow
+
+Request booking
+↓
+add queue
+↓
+response nhanh
+↓
+worker xử lý background
+
+Lợi ích:
+- dàn đều tải
+- giảm spike
+- DB ổn định hơn
+
+---
+
+# Redis dùng để làm gì?
+
+Redis:
+- queue backend cho BullMQ
+- cache
+- rate limit
+- counter
+- lock
+
+BullMQ dùng Redis bên dưới.
+
+---
+
+# Atomic Update chống overslot
+
+KHÔNG dùng:
+
+SELECT remaining
+UPDATE remaining
+
+Vì race condition.
+
+NÊN dùng:
+
+UPDATE slots
+SET remaining = remaining - 1
+WHERE id = ?
+AND remaining > 0;
+
+Check:
+- affectedRows = 1 → success
+- affectedRows = 0 → hết slot
+
+---
+
+# Rate Limit
+
+Dùng:
+@nestjs/throttler
+
+Ví dụ:
+- 5 request / 10s / IP
+
+Mục tiêu:
+- chống spam
+- chống free-tier chết
+
+---
+
+# Cloudflare giúp gì?
+
+Cloudflare free:
+- chống bot
+- basic DDoS protection
+- cache
+- rate limiting nhẹ
+
+---
+
+# Load Testing
+
+Tool:
+- k6
+
+k6:
+- không chạy bằng node
+- dùng JS syntax riêng
+- chạy bằng:
+k6 run test.js
+
+---
+
+# Ví dụ k6
+
+import http from 'k6/http';
+
+export const options = {
+  vus: 500,
+  duration: '20s',
+};
+
+export default function () {
+  http.post(
+    'http://localhost:3000/appointments',
+    JSON.stringify({
+      slotId: 1,
+      patientId: Math.random(),
+    }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+}
+
+---
+
+# Mục tiêu khi stress test
+
+Không phải:
+- chịu 1 triệu user thật
+
+Mà là:
+- không overslot
+- không duplicate booking
+- DB không chết
+- fail graceful
+- response ổn định
+
+---
+
+# Với Render Free
+
+Giới hạn:
+- ~512MB RAM
+- shared CPU
+- sleep sau 15 phút
+- dễ chết nếu spam mạnh
+
+Nên cần:
+- queue
+- rate limit
+- Redis
+- atomic update
+
+---
+
+# Prisma lưu ý
+
+Không tạo nhiều PrismaClient.
+
+NÊN:
+- singleton PrismaService
+- connection pooling
+
+---
+
+# Queue phù hợp cho clinic booking
+
+Flow:
+
+request booking
+↓
+queue
+↓
+worker check slot
+↓
+atomic update
+↓
+create appointment
+
+---
+
+# Kiến thức backend đã học
+
+- concurrency
+- race condition
+- atomic query
+- queue architecture
+- Redis
+- BullMQ
+- rate limiting
+- load testing
+- DB connection bottleneck
+- free-tier scaling
+- stress testing mindset
+
+---
+
+# Định hướng level
+## Junior thường:
+- CRUD
+- JWT
+- upload image
+
+## Junior mạnh / cận Mid:
+- queue
+- Redis
+- load testing
+- concurrency
+- anti-oversell
+- architecture thinking
+
+---
+
+# Mid-level backend cần thêm
+
+## Database
+- index
+- explain plan
+- transaction
+- deadlock
+- isolation level
+
+## System Design
+- cache invalidation
+- distributed lock
+- idempotency
+- retry strategy
+
+## Performance
+- memory leak
+- event loop blocking
+- pagination
+- N+1 query
+
+## DevOps
+- Docker
+- CI/CD
+- monitoring
+- logging
+
+## Security
+- JWT
+- RBAC
+- SQL injection
+- XSS/CSRF
+- rate limit
+
+---
+
+# Backend mindset quan trọng
+
+Không phải:
+“API chạy được”
+
+Mà là:
+- scale thế nào
+- fail thế nào
+- DB chịu tải ra sao
+- chống duplicate ra sao
+- chống spike traffic ra sao
